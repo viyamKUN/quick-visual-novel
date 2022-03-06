@@ -8,7 +8,7 @@ namespace QVN.DefaultUI
 {
     public enum SceneName
     {
-        Title, Home, Game, Story
+        Home, Story
     }
 
     public class SceneLoader : MonoBehaviour
