@@ -1,4 +1,4 @@
-namespace Models.Story
+namespace QVN.Models.Story
 {
     [System.Serializable]
     public class ScenarioLine

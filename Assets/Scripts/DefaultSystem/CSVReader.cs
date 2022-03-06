@@ -1,43 +1,45 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
 
-public class CSVReader
+namespace QVN.DefaultSystem
 {
-    static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
-    static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
-    static char[] TRIM_CHARS = { '\"' };
-
-    public static List<Dictionary<string, object>> Read(TextAsset asset)
+    public class CSVReader
     {
-        var list = new List<Dictionary<string, object>>();
-        var lines = Regex.Split(asset.text, LINE_SPLIT_RE);
+        static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
+        static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
+        static char[] TRIM_CHARS = { '\"' };
 
-        var header = Regex.Split(lines[0], SPLIT_RE);
-
-        for (int i = 1; i < lines.Length; i++)
+        public static List<Dictionary<string, object>> Read(TextAsset asset)
         {
-            var values = Regex.Split(lines[i], SPLIT_RE);
-            if (values.Length < 2 || values[0] == "") continue;
+            var list = new List<Dictionary<string, object>>();
+            var lines = Regex.Split(asset.text, LINE_SPLIT_RE);
 
-            var entry = new Dictionary<string, object>();
+            var header = Regex.Split(lines[0], SPLIT_RE);
 
-            for (var j = 0; j < header.Length; j++)
+            for (int i = 1; i < lines.Length; i++)
             {
-                string value = values[j];
-                value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS);
+                var values = Regex.Split(lines[i], SPLIT_RE);
+                if (values.Length < 2 || values[0] == "") continue;
 
-                object finalvalue = value;
-                if (int.TryParse(value, out int n))
-                    finalvalue = n;
-                else if (float.TryParse(value, out float f))
-                    finalvalue = f;
+                var entry = new Dictionary<string, object>();
 
-                entry[header[j]] = finalvalue;
+                for (var j = 0; j < header.Length; j++)
+                {
+                    string value = values[j];
+                    value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS);
+
+                    object finalvalue = value;
+                    if (int.TryParse(value, out int n))
+                        finalvalue = n;
+                    else if (float.TryParse(value, out float f))
+                        finalvalue = f;
+
+                    entry[header[j]] = finalvalue;
+                }
+                list.Add(entry);
             }
-            list.Add(entry);
+            return list;
         }
-        return list;
     }
 }

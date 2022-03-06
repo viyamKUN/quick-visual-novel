@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace Story
+namespace QVN.Story
 {
     public class SelectionSlot : MonoBehaviour
     {
@@ -23,7 +21,7 @@ namespace Story
         public void ShowSlot(string message)
         {
             this.gameObject.SetActive(true);
-            _text.text = message.Replace("{n}", PlayerSaveData.Name);
+            _text.text = message.Replace("{n}", Data.PlayerSaveData.Name);
         }
 
         public void OffSlot()

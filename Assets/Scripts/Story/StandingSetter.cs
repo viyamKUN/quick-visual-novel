@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Story
+namespace QVN.Story
 {
     public class StandingSetter : MonoBehaviour
     {

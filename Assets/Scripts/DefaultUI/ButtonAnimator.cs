@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace DefaultUI
+namespace QVN.DefaultUI
 {
     public class ButtonAnimator : MonoBehaviour
     {

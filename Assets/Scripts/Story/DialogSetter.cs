@@ -1,11 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 using DG.Tweening;
 
-namespace Story
+namespace QVN.Story
 {
     public class DialogSetter : MonoBehaviour
     {
@@ -21,7 +19,7 @@ namespace Story
         public void SetDialog(string name, string dialog)
         {
             _name.text = name;
-            dialog = dialog.Replace("{n}", PlayerSaveData.Name);
+            dialog = dialog.Replace("{n}", Data.PlayerSaveData.Name);
             float duration = dialog.Length * 0.1f;
             _dialogAnimation = _dialog.DOText(dialog, duration).From("").SetEase(Ease.Linear).target;
 

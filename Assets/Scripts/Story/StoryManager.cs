@@ -3,9 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-namespace Story
+namespace QVN.Story
 {
-    using StaticData;
     using Models.Story;
     using DefaultUI;
 
@@ -30,13 +29,14 @@ namespace Story
         private void Awake()
         {
             _selectionSetter.Init();
-            int targetScenario = Data.StaticData.StoryBookmark.GetScenarioNumber();
+            int targetScenario = Data.StoryBookmark.GetScenarioNumber();
+            Data.StoryStaticData.ReadData();
             ShowScenario(targetScenario);
         }
 
         private void ShowScenario(int id)
         {
-            _scenarioList = StoryStaticData.GetScenario(id);
+            _scenarioList = Data.StoryStaticData.GetScenario(id);
             _fade.gameObject.SetActive(false);
             _isOnLoading = false;
             _selectionLines = new List<ScenarioLine>();

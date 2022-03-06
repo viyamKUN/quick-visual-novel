@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-namespace DefaultUI
+namespace QVN.DefaultUI
 {
     public class OptionManager : MonoBehaviour
     {

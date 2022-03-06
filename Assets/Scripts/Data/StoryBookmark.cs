@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Data.StaticData
+namespace QVN.Data
 {
     public static class StoryBookmark
     {
