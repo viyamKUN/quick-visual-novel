@@ -6,14 +6,16 @@ namespace QVN.Models.Story
         public string Code;
         public int Flag;
         public string Info;
+        public string SubInfo;
         public string Contents;
 
-        public ScenarioLine(object code, object flag, object info, object contents)
+        public ScenarioLine(object code, object flag, object info, object subInfo, object contents)
         {
-            this.Code = code.ToString();
-            this.Flag = (int)flag;
-            this.Info = info.ToString();
-            this.Contents = contents.ToString();
+            Code = code.ToString();
+            Flag = (int)flag;
+            Info = info.ToString();
+            SubInfo = subInfo.ToString();
+            Contents = contents.ToString();
         }
     }
 }
