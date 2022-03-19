@@ -1,0 +1,28 @@
+Code,Flag,Info,SubInfo,SubContents,Contents
+SET,0,Member,,IDLE,オスカ
+TALK,0,オスカ,,IDLE,"...。"
+TALK,0,オスカ,,IDLE,"......。"
+SYSTEM,0,,,,ここがどこなのか知っていますか？
+SYSTEM,0,,,,どこまで憶えますか?
+TALK,0,オスカ,,IDLE,"...。"
+TALK,0,オスカ,,IDLE,何も...。
+RADIO,0,,,,"ジジジト...。"
+TALK,0,知らない声,,TALK,"うーん, まただめだね。"
+SET,0,Member,,IDLE,"オスカ,ラビ"
+TALK,0,オスカ,,IDLE,"誰?"
+TALK,0,ラビ,???,IDLE,え? 起きた？オズ？
+TALK,0,オスカ,,IDLE,"オズ??"
+TALK,0,ラビ,???,IDLE,"おや...また思い出せないんだね。"
+TALK,0,ラビ,???,IDLE,"ラジオもオズも通じない...。"
+SELECT,0,1,,,名前を聞く。
+SELECT,0,2,,,銃口を差し込む。
+TALK,1,オスカ,,IDLE,"名前。"
+TALK,1,ラビ,,IDLE,"ラビ, ラビ, ビート。"
+TALK,1,ラビ,,IDLE,"もうちょっと覚えてる?"
+TALK,1,オスカ,,IDLE,"(覚えていない。)"
+TALK,2,オスカ,,IDLE,"(銃口を彼に突きつけた。)"
+TALK,2,ラビ,,IDLE,"...。"
+TALK,2,ラビ,,IDLE,"君の様子を見て. 今喧嘩するのはあまりよくないと思う。"
+TALK,2,オスカ,,IDLE,"...(銃口を下げる。)"
+TALK,0,オスカ,,IDLE,"何? 悪いやつじゃないと思うよ。"
+TALK,0,ラビ,,IDLE,"ああっ。 まだまだ先は遠いね。"
