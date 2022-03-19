@@ -36,7 +36,6 @@ namespace QVN.Data
             }
         }
 
-        public static int ScenarioCount => _scenarios.Count;
         public static List<ScenarioLine> GetScenario(int scenarioNumber)
         {
             return _scenarios[scenarioNumber];

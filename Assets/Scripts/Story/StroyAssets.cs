@@ -15,7 +15,8 @@ namespace QVN.Story
 
         public Sprite GetStandingAsset(string name, FEELING feeling)
         {
-            var standings = _standingAssets.Find(x => x.Name.Equals(name)).StandingSprites;
+            var id = Data.CharacterStaticData.GetID(name);
+            var standings = _standingAssets.Find(x => x.ID.Equals(id)).StandingSprites;
             return standings?.Find(x => x.Feeling == feeling).StandingSprite;
         }
     }
@@ -23,7 +24,7 @@ namespace QVN.Story
     [System.Serializable]
     public struct StandingAssetSet
     {
-        public string Name;
+        public string ID;
         public List<StandingAsset> StandingSprites;
     }
 
