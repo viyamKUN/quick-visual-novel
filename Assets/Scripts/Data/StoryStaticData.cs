@@ -24,7 +24,7 @@ namespace QVN.Data
                 foreach (var data in dataList)
                 {
                     _scenarios[id].Add(new ScenarioLine(
-                        data["Code"], data["Flag"], data["Info"], data["Contents"]
+                        data["Code"], data["Flag"], data["Info"], data["SubInfo"], data["SubContents"], data["Contents"]
                     ));
                 }
             }

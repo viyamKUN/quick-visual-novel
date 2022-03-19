@@ -31,27 +31,30 @@ namespace QVN.Story
             }
             else if (members.Length == 1)
             {
-                SetSlot(_standingSlots[0], members[0]);
-                _standingSlots[1].gameObject.SetActive(false);
-                _standingSlots[2].gameObject.SetActive(false);
                 _names[0] = members[0];
                 _names[1] = string.Empty;
                 _names[2] = string.Empty;
             }
             else
             {
-                _standingSlots[0].gameObject.SetActive(false);
-                SetSlot(_standingSlots[1], members[0]);
-                SetSlot(_standingSlots[2], members[1]);
                 _names[0] = string.Empty;
                 _names[1] = members[0];
                 _names[2] = members[1];
             }
+            for (int i = 0; i < _standingSlots.Count; i++)
+            {
+                SetSlot(_standingSlots[i], _names[i], FEELING.IDLE);
+            }
         }
 
-        private void SetSlot(Image image, string name)
+        private void SetSlot(Image image, string name, FEELING feeling)
         {
-            var sprite = _assets.GetStandingAsset(name);
+            if (name.Equals(string.Empty))
+            {
+                image.gameObject.SetActive(false);
+                return;
+            }
+            var sprite = _assets.GetStandingAsset(name, feeling);
             if (sprite == null)
             {
                 image.gameObject.SetActive(false);
@@ -63,11 +66,19 @@ namespace QVN.Story
             }
         }
 
-        public void SetHighlight(string talker)
+        public void SetTalker(string talker, FEELING feeling)
         {
             for (int i = 0; i < 3; i++)
             {
                 _standingSlots[i].color = _names[i].Equals(talker) ? Color.white : Color.gray;
+                if (!talker.Equals(string.Empty) && _names[i].Equals(talker))
+                {
+                    var sprite = _assets.GetStandingAsset(talker, feeling);
+                    if (sprite != null)
+                    {
+                        _standingSlots[i].sprite = sprite;
+                    }
+                }
             }
         }
     }

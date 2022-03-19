@@ -13,7 +13,9 @@ namespace QVN.Story
         [SerializeField]
         private SceneLoader _loader;
         [SerializeField]
-        private DialogSetter _dialogSetter;
+        private TalkDialogSetter _dialogSetter;
+        [SerializeField]
+        private SystemDialogSetter _systemDialogSetter;
         [SerializeField]
         private StandingSetter _standingSetter;
         [SerializeField]
@@ -29,6 +31,7 @@ namespace QVN.Story
         private void Awake()
         {
             _selectionSetter.Init();
+            _systemDialogSetter.Init();
             int targetScenario = Data.StoryBookmark.GetScenarioID();
             Data.StoryStaticData.ReadData();
             ShowScenario(targetScenario);
@@ -63,8 +66,15 @@ namespace QVN.Story
                     Next();
                     break;
                 case "TALK":
-                    _dialogSetter.SetDialog(line.Info, line.Contents);
-                    _standingSetter.SetHighlight(line.Info);
+                    _dialogSetter.SetDialog(line.GetName(), line.Contents);
+                    _standingSetter.SetTalker(line.Info, line.GetFeeling());
+                    break;
+                case "RADIO":
+                    _dialogSetter.SetRadioDialog(line.GetName(), line.Contents);
+                    _standingSetter.SetTalker(line.Info, line.GetFeeling());
+                    break;
+                case "SYSTEM":
+                    _systemDialogSetter.SetDialog(string.Empty, line.Contents);
                     break;
                 case "SELECT":
                     var nextLine = _scenarioList[_pin + 1];
@@ -115,15 +125,30 @@ namespace QVN.Story
         public void GetNextInput()
         {
             var line = _scenarioList[_pin];
-            if (line.Code.Equals("SELECT"))
-                return;
-            if (line.Code.Equals("TALK"))
+            switch (line.Code)
             {
-                if (_dialogSetter.IsAnimationPlaying())
-                {
-                    _dialogSetter.ForceCompleteAnimation();
+                case "SELECT":
                     return;
-                }
+                case "TALK":
+                    if (_dialogSetter.IsAnimationPlaying())
+                    {
+                        _dialogSetter.ForceCompleteAnimation();
+                        return;
+                    }
+                    break;
+                case "SYSTEM":
+                    if (_systemDialogSetter.IsAnimationPlaying())
+                    {
+                        _systemDialogSetter.ForceCompleteAnimation();
+                        return;
+                    }
+                    else
+                    {
+                        var nextLine = _scenarioList[_pin + 1];
+                        if (!nextLine.Code.Equals(line.Code))
+                            _systemDialogSetter.Close();
+                    }
+                    break;
             }
             Next();
         }
