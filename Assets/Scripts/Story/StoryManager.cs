@@ -63,10 +63,7 @@ namespace QVN.Story
                     Next();
                     break;
                 case "TALK":
-                    var name = line.Info;
-                    if (!line.SubInfo.Equals(string.Empty))
-                        name = line.SubInfo;
-                    _dialogSetter.SetDialog(name, line.Contents);
+                    _dialogSetter.SetDialog(line.GetName(), line.Contents);
                     _standingSetter.SetHighlight(line.Info);
                     break;
                 case "SELECT":

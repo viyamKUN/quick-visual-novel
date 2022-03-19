@@ -17,5 +17,17 @@ namespace QVN.Models.Story
             SubInfo = subInfo.ToString();
             Contents = contents.ToString();
         }
+
+        public string GetName()
+        {
+            if (!SubInfo.Equals(string.Empty))
+            {
+                return SubInfo;
+            }
+            else
+            {
+                return Info;
+            }
+        }
     }
 }
