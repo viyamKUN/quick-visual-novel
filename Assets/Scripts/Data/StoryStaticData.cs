@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace QVN.Data
 {
@@ -34,5 +35,7 @@ namespace QVN.Data
         {
             return _scenarios[scenarioNumber];
         }
+
+        public static List<int> GetScenarioIDs => _scenarios.Keys.ToList();
     }
 }

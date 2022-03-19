@@ -29,7 +29,7 @@ namespace QVN.Story
         private void Awake()
         {
             _selectionSetter.Init();
-            int targetScenario = Data.StoryBookmark.GetScenarioNumber();
+            int targetScenario = Data.StoryBookmark.GetScenarioID();
             Data.StoryStaticData.ReadData();
             ShowScenario(targetScenario);
         }
