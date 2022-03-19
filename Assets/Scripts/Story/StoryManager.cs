@@ -5,7 +5,7 @@ using DG.Tweening;
 
 namespace QVN.Story
 {
-    using Models.Story;
+    using Models;
     using DefaultUI;
 
     public class StoryManager : MonoBehaviour

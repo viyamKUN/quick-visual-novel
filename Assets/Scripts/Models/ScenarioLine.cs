@@ -1,4 +1,4 @@
-namespace QVN.Models.Story
+namespace QVN.Models
 {
     using QVN.Story;
     [System.Serializable]

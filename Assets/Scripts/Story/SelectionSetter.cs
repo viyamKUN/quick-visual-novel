@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace QVN.Story
 {
-    using Models.Story;
+    using Models;
 
     public class SelectionSetter : MonoBehaviour
     {

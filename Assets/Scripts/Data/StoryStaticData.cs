@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace QVN.Data
 {
-    using Models.Story;
+    using Models;
     public static class StoryStaticData
     {
         private static string _scenarioPath = "/Scenarios";
