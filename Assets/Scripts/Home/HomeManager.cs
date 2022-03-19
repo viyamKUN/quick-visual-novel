@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Home
+namespace QVN.Home
 {
     public class HomeManager : MonoBehaviour
     {
@@ -11,6 +11,7 @@ namespace Home
 
         private void Start()
         {
+            Data.StoryStaticData.ReadData();
             _scenarioList.Init();
         }
     }
