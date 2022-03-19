@@ -66,6 +66,10 @@ namespace QVN.Story
                     _dialogSetter.SetDialog(line.GetName(), line.Contents);
                     _standingSetter.SetHighlight(line.Info);
                     break;
+                case "RADIO":
+                    _dialogSetter.SetRadioDialog(line.GetName(), line.Contents);
+                    _standingSetter.SetHighlight(line.Info);
+                    break;
                 case "SELECT":
                     var nextLine = _scenarioList[_pin + 1];
                     if (!nextLine.Code.Equals("SELECT"))

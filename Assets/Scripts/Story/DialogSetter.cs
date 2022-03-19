@@ -22,12 +22,17 @@ namespace QVN.Story
             dialog = dialog.Replace("{n}", Data.PlayerSaveData.Name);
             float duration = dialog.Length * 0.1f;
             _dialogAnimation = _dialog.DOText(dialog, duration).From("").SetEase(Ease.Linear).target;
+            PlayKeyboardSound(duration);
+        }
 
-            if (_keyboardSound != null)
-            {
-                StopCoroutine(_keyboardSound);
-            }
-            _keyboardSound = StartCoroutine(PlayKeyboardSound(0.1f, duration));
+        public void SetRadioDialog(string name, string dialog)
+        {
+            // TODO: 글씨체를 라디오문체로 변경하고 라디오 효과를 줍니다.
+            _name.text = name;
+            dialog = dialog.Replace("{n}", Data.PlayerSaveData.Name);
+            float duration = dialog.Length * 0.1f;
+            _dialogAnimation = _dialog.DOText(dialog, duration).From("").SetEase(Ease.Linear).target;
+            PlayKeyboardSound(duration);
         }
 
         public bool IsAnimationPlaying()
@@ -52,7 +57,16 @@ namespace QVN.Story
             }
         }
 
-        private IEnumerator PlayKeyboardSound(float term, float duration)
+        private void PlayKeyboardSound(float duration)
+        {
+            if (_keyboardSound != null)
+            {
+                StopCoroutine(_keyboardSound);
+            }
+            _keyboardSound = StartCoroutine(KeyboardSoundCoroutine(0.1f, duration));
+        }
+
+        private IEnumerator KeyboardSoundCoroutine(float term, float duration)
         {
             WaitForSeconds wait = new WaitForSeconds(term);
             float timeBucket = Time.time;
