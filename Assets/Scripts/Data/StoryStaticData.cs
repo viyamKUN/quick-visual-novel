@@ -8,7 +8,7 @@ namespace QVN.Data
     using Models.Story;
     public static class StoryStaticData
     {
-        private static readonly string _scenarioPath = "KR/Scenarios";
+        private static string _scenarioPath = "/Scenarios";
         private static Dictionary<int, List<ScenarioLine>> _scenarios;
 
         public static void DeleteData()
@@ -21,8 +21,8 @@ namespace QVN.Data
         {
             if (_scenarios != null) return;
             _scenarios = new Dictionary<int, List<ScenarioLine>>();
-
-            foreach (var asset in Resources.LoadAll<TextAsset>(_scenarioPath))
+            var path = $"{Data.LocalData.GetLanguage}{_scenarioPath}";
+            foreach (var asset in Resources.LoadAll<TextAsset>(path))
             {
                 var dataList = DefaultSystem.CSVReader.Read(asset);
                 var id = int.Parse(asset.name.Replace("Scenario_", ""));
