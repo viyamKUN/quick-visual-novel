@@ -11,6 +11,12 @@ namespace QVN.Data
         private static readonly string _scenarioPath = "KR/Scenarios";
         private static Dictionary<int, List<ScenarioLine>> _scenarios;
 
+        public static void DeleteData()
+        {
+            _scenarios?.Clear();
+            _scenarios = null;
+        }
+
         public static void ReadData()
         {
             if (_scenarios != null) return;

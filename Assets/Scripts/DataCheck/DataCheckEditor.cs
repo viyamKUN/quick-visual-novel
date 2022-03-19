@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -10,6 +8,8 @@ namespace QVN.DataCheck
     {
         private GUIStyle _style = new GUIStyle();
         private RESULT _result = RESULT.NONE;
+        private string _resultMessage;
+        private string _subMessage;
         public override void OnInspectorGUI()
         {
             var manager = target as DataCheckManager;
@@ -19,11 +19,18 @@ namespace QVN.DataCheck
             GUILayout.Space(10);
             if (GUILayout.Button("Check All CSV"))
             {
-                _result = manager.Check();
+                var checkerResult = manager.Check();
+                _result = checkerResult.result;
+                _resultMessage = checkerResult.message;
+                _subMessage = checkerResult.subMessage;
                 _style.normal.textColor = GetStyleColor();
             }
             GUILayout.Space(10);
             GUILayout.Label($"Result: {_result}", _style);
+            if (_result.Equals(RESULT.FAIL))
+            {
+                GUILayout.Label($"{_resultMessage} \n{_subMessage}");
+            }
         }
 
         private Color GetStyleColor()
