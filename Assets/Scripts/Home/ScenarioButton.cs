@@ -24,7 +24,6 @@ namespace QVN.Home
 
         public void SelectScenario()
         {
-            Debug.Log($"{_scenarioID}번의 시나리오를 선택함.");
             _selectAction(_scenarioID);
         }
     }

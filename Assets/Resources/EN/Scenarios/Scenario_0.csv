@@ -1,0 +1,29 @@
+Code,Flag,Info,SubInfo,SubContents,Contents
+SET,0,Member,,IDLE,Oscar
+TALK,0,Oscar,,IDLE,...
+TALK,0,Oscar,,IDLE,"...."
+SYSTEM,0,,,,Do you know where this is?
+SYSTEM,0,,,,How far do you remember?
+SYSTEM,0,,,,This is PAPAGO translation.
+TALK,0,Oscar,,IDLE,...
+TALK,0,Oscar,,IDLE,"Nothing..."
+Radio,0,,,,"Buzzing..."
+TALK,0,unknown voice,,TALK,"Well...it's dead again."
+SET,0,Member,,IDLE,"Oscar,Ravi"
+TALK,0,Oscar,,IDLE,"Who is it?"
+TALK,0,Ravi,???,IDLE,"huh? Are you up,Oz?"
+TALK,0,Oscar,,IDLE,"OZ???"
+TALK,0,Ravi,???,IDLE,... I guess you don't remember again.
+TALK,0,Ravi,???,IDLE,"Radio and Oz are both dead..."
+SELECT,0,1,,,Ask for the name.
+SELECT,0,2,,,Push the gun.
+TALK,1,Oscar,,IDLE,Name.
+TALK,1,Ravi,,IDLE,Ravi. Ravi Vito.
+TALK,1,Ravi,,IDLE,Do you remember now?"
+TALK,1,Oscar,,IDLE,"(Never.)"
+TALK,2,Oscar,,IDLE,"(I push the gun to her.)"
+TALK,2,Ravi,,IDLE,...
+TALK,2,Ravi,,IDLE,"Look at your condition. I don't think it's good to fight now."
+TALK,2,Oscar,,IDLE,...
+TALK,0,Oscar,,IDLE,... Okay.
+TALK,0,Ravi,,IDLE,"Phew. We have a long way to go."

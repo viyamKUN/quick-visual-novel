@@ -5,7 +5,7 @@ using DG.Tweening;
 
 namespace QVN.Story
 {
-    using Models.Story;
+    using Models;
     using DefaultUI;
 
     public class StoryManager : MonoBehaviour
@@ -34,6 +34,7 @@ namespace QVN.Story
             _systemDialogSetter.Init();
             int targetScenario = Data.StoryBookmark.GetScenarioID();
             Data.StoryStaticData.ReadData();
+            Data.CharacterStaticData.ReadData();
             ShowScenario(targetScenario);
         }
 
