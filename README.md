@@ -7,7 +7,7 @@
 - 'Assets/Resources/[언어코드]/'에 시나리오 파일 생성
 - 시나리오 파일은 Scenario_[넘버링]으로 명명
 - 예시로 첨부된 Scenario_0.csv를 참고하여 시나리오 작성
-- 시나리오 작성에 대한 내용은 [블로그](https://viyamkun.github.io) 참고
+- 시나리오 작성에 대한 내용은 [블로그](https://viyamkun.github.io/posts/quick-visual-novel/) 참고
 
 ## 사용된 폰트
 
