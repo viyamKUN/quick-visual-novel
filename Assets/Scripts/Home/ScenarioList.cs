@@ -8,7 +8,6 @@ namespace QVN.Home
         private HomeManager _homeManager;
         [SerializeField]
         private GameObject _buttonsContainer;
-
         private ScenarioButton[] _scenarioButtons;
 
         public void Init()
