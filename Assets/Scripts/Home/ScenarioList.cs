@@ -17,11 +17,13 @@ namespace QVN.Home
         {
             _scenarioButtons = _buttonsContainer.GetComponentsInChildren<ScenarioButton>();
             int index = 0;
+            var scenarioIDs = Data.StoryStaticData.GetScenarioIDs;
             foreach (var btn in _scenarioButtons)
             {
-                bool isActive = true;
-                string scenarioName = $"{index}. 시나리오 이름";
+                bool isActive = index < scenarioIDs.Count;
                 btn.SetActive(isActive);
+                if (!isActive) continue;
+                var scenarioName = $"{scenarioIDs[index]}. 시나리오 이름";
                 btn.SetData(index++, scenarioName, LoadSelectedScenario);
             }
         }
