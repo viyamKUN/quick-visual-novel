@@ -64,11 +64,11 @@ namespace QVN.Story
                     break;
                 case "TALK":
                     _dialogSetter.SetDialog(line.GetName(), line.Contents);
-                    _standingSetter.SetHighlight(line.Info);
+                    _standingSetter.SetHighlight(line.Info, line.GetFeeling());
                     break;
                 case "RADIO":
                     _dialogSetter.SetRadioDialog(line.GetName(), line.Contents);
-                    _standingSetter.SetHighlight(line.Info);
+                    _standingSetter.SetHighlight(line.Info, line.GetFeeling());
                     break;
                 case "SELECT":
                     var nextLine = _scenarioList[_pin + 1];

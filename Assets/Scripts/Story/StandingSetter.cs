@@ -43,18 +43,18 @@ namespace QVN.Story
             }
             for (int i = 0; i < _standingSlots.Count; i++)
             {
-                SetSlot(_standingSlots[i], _names[i]);
+                SetSlot(_standingSlots[i], _names[i], FEELING.IDLE);
             }
         }
 
-        private void SetSlot(Image image, string name)
+        private void SetSlot(Image image, string name, FEELING feeling)
         {
             if (name.Equals(string.Empty))
             {
                 image.gameObject.SetActive(false);
                 return;
             }
-            var sprite = _assets.GetStandingAsset(name);
+            var sprite = _assets.GetStandingAsset(name, feeling);
             if (sprite == null)
             {
                 image.gameObject.SetActive(false);
@@ -66,11 +66,19 @@ namespace QVN.Story
             }
         }
 
-        public void SetHighlight(string talker)
+        public void SetHighlight(string talker, FEELING feeling)
         {
             for (int i = 0; i < 3; i++)
             {
                 _standingSlots[i].color = _names[i].Equals(talker) ? Color.white : Color.gray;
+                if (_names[i].Equals(talker))
+                {
+                    var sprite = _assets.GetStandingAsset(talker, feeling);
+                    if (sprite != null)
+                    {
+                        _standingSlots[i].sprite = sprite;
+                    }
+                }
             }
         }
     }
