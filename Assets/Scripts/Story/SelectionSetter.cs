@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace QVN.Story
 {
@@ -9,12 +10,12 @@ namespace QVN.Story
     {
         [SerializeField]
         private StoryManager _manager;
-        [SerializeField]
         private List<SelectionSlot> _slots;
 
         public void Init()
         {
             int index = 0;
+            _slots = gameObject.GetComponentsInChildren<SelectionSlot>().ToList();
             _slots.ForEach(x =>
             {
                 x.SetSlot(id: index++, clickAction: MakeDecision);
