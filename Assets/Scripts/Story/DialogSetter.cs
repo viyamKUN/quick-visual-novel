@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
@@ -8,33 +9,15 @@ namespace QVN.Story
     public class DialogSetter : MonoBehaviour
     {
         [SerializeField]
-        private float _dialogShowingSpeed;
-        [SerializeField]
-        private TextMeshProUGUI _name;
-        [SerializeField]
-        private TextMeshProUGUI _dialog;
-        [SerializeField]
-        private DialogConfig _config;
-        private object _dialogAnimation;
+        protected TextMeshProUGUI _dialog;
+        protected object _dialogAnimation;
         private Coroutine _keyboardSound;
 
-        public void SetDialog(string name, string dialog)
+        public virtual void SetDialog(string name, string dialog)
         {
-            _name.text = name;
             dialog = dialog.Replace("{n}", Data.PlayerSaveData.Name);
             float duration = dialog.Length * 0.1f;
             _dialogAnimation = _dialog.DOText(dialog, duration).From("").SetEase(Ease.Linear).target;
-            _dialog.font = _config.GetBaseFont;
-            PlayKeyboardSound(duration);
-        }
-
-        public void SetRadioDialog(string name, string dialog)
-        {
-            _name.text = name;
-            dialog = dialog.Replace("{n}", Data.PlayerSaveData.Name);
-            float duration = dialog.Length * 0.1f;
-            _dialogAnimation = _dialog.DOText(dialog, duration).From("").SetEase(Ease.Linear).target;
-            _dialog.font = _config.GetRadioFont;
             PlayKeyboardSound(duration);
         }
 
@@ -60,7 +43,7 @@ namespace QVN.Story
             }
         }
 
-        private void PlayKeyboardSound(float duration)
+        protected void PlayKeyboardSound(float duration)
         {
             if (_keyboardSound != null)
             {
@@ -69,7 +52,7 @@ namespace QVN.Story
             _keyboardSound = StartCoroutine(KeyboardSoundCoroutine(0.1f, duration));
         }
 
-        private IEnumerator KeyboardSoundCoroutine(float term, float duration)
+        protected IEnumerator KeyboardSoundCoroutine(float term, float duration)
         {
             WaitForSeconds wait = new WaitForSeconds(term);
             float timeBucket = Time.time;
@@ -80,17 +63,5 @@ namespace QVN.Story
                 yield return wait;
             }
         }
-    }
-
-    [System.Serializable]
-    public class DialogConfig
-    {
-        [SerializeField]
-        private TMP_FontAsset _baseFont;
-        [SerializeField]
-        private TMP_FontAsset _radioFont;
-
-        public TMP_FontAsset GetBaseFont => _baseFont;
-        public TMP_FontAsset GetRadioFont => _radioFont;
     }
 }
