@@ -13,6 +13,8 @@ namespace QVN.Story
         private TextMeshProUGUI _name;
         [SerializeField]
         private TextMeshProUGUI _dialog;
+        [SerializeField]
+        private DialogConfig _config;
         private object _dialogAnimation;
         private Coroutine _keyboardSound;
 
@@ -22,16 +24,17 @@ namespace QVN.Story
             dialog = dialog.Replace("{n}", Data.PlayerSaveData.Name);
             float duration = dialog.Length * 0.1f;
             _dialogAnimation = _dialog.DOText(dialog, duration).From("").SetEase(Ease.Linear).target;
+            _dialog.font = _config.GetBaseFont;
             PlayKeyboardSound(duration);
         }
 
         public void SetRadioDialog(string name, string dialog)
         {
-            // TODO: 글씨체를 라디오문체로 변경하고 라디오 효과를 줍니다.
             _name.text = name;
             dialog = dialog.Replace("{n}", Data.PlayerSaveData.Name);
             float duration = dialog.Length * 0.1f;
             _dialogAnimation = _dialog.DOText(dialog, duration).From("").SetEase(Ease.Linear).target;
+            _dialog.font = _config.GetRadioFont;
             PlayKeyboardSound(duration);
         }
 
@@ -77,5 +80,17 @@ namespace QVN.Story
                 yield return wait;
             }
         }
+    }
+
+    [System.Serializable]
+    public class DialogConfig
+    {
+        [SerializeField]
+        private TMP_FontAsset _baseFont;
+        [SerializeField]
+        private TMP_FontAsset _radioFont;
+
+        public TMP_FontAsset GetBaseFont => _baseFont;
+        public TMP_FontAsset GetRadioFont => _radioFont;
     }
 }

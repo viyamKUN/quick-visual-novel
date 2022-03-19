@@ -673,6 +673,9 @@ MonoBehaviour:
   _dialogShowingSpeed: 2
   _name: {fileID: 145471229}
   _dialog: {fileID: 2143074814}
+  _config:
+    _baseFont: {fileID: 11400000, guid: 5c31ed08e996d4527ac31708ac385d6c, type: 2}
+    _radioFont: {fileID: 11400000, guid: 83355ea38d9da4f768e0d8767b1f9a12, type: 2}
 --- !u!1 &605860144
 GameObject:
   m_ObjectHideFlags: 0
