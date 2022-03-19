@@ -66,12 +66,12 @@ namespace QVN.Story
             }
         }
 
-        public void SetHighlight(string talker, FEELING feeling)
+        public void SetTalker(string talker, FEELING feeling)
         {
             for (int i = 0; i < 3; i++)
             {
                 _standingSlots[i].color = _names[i].Equals(talker) ? Color.white : Color.gray;
-                if (_names[i].Equals(talker))
+                if (!talker.Equals(string.Empty) && _names[i].Equals(talker))
                 {
                     var sprite = _assets.GetStandingAsset(talker, feeling);
                     if (sprite != null)
