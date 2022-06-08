@@ -455,37 +455,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _standingAssets:
   - ID: Oscar
-    StandingSprites:
-    - Feeling: 0
-      StandingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
-    - Feeling: 1
-      StandingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
-    - Feeling: 2
-      StandingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
-    - Feeling: 3
-      StandingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
-    - Feeling: 4
-      StandingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
-    - Feeling: 5
-      StandingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
-    - Feeling: 6
-      StandingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
+    standingSprites:
+    - feeling: 0
+      standingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
+    - feeling: 1
+      standingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
+    - feeling: 2
+      standingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
+    - feeling: 3
+      standingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
+    - feeling: 4
+      standingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
+    - feeling: 5
+      standingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
+    - feeling: 6
+      standingSprite: {fileID: 21300000, guid: c73e27ab503b745dba8c3e9e70f6ddd0, type: 3}
   - ID: Ravi
-    StandingSprites:
-    - Feeling: 0
-      StandingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
-    - Feeling: 1
-      StandingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
-    - Feeling: 2
-      StandingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
-    - Feeling: 3
-      StandingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
-    - Feeling: 4
-      StandingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
-    - Feeling: 5
-      StandingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
-    - Feeling: 6
-      StandingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
+    standingSprites:
+    - feeling: 0
+      standingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
+    - feeling: 1
+      standingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
+    - feeling: 2
+      standingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
+    - feeling: 3
+      standingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
+    - feeling: 4
+      standingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
+    - feeling: 5
+      standingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
+    - feeling: 6
+      standingSprite: {fileID: 21300000, guid: 034db6fa19c3b4902ba432569e4effa3, type: 3}
+  _backgroundAssets:
+  - ID: city
+    backgroundSprite: {fileID: 21300000, guid: 4eeab1bd012a747c88c3d970901612a4, type: 3}
+  - ID: forest
+    backgroundSprite: {fileID: 21300000, guid: 928f9da2f62da410cbeeff1fa8b8cbfd, type: 3}
 --- !u!1 &497199658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ede3f2fd1d569432dbc8571138f17a99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4eeab1bd012a747c88c3d970901612a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
