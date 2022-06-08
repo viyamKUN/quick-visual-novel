@@ -1,0 +1,16 @@
+{
+    "Names": [
+        {
+            "ID": "forest",
+            "KR": "숲",
+            "EN": "Forest",
+            "JP": "森"
+        },
+        {
+            "ID": "city",
+            "KR": "도시",
+            "EN": "City",
+            "JP": "都市"
+        }
+    ]
+}

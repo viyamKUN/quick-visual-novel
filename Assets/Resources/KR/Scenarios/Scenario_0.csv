@@ -1,6 +1,8 @@
 Code,Flag,Info,SubInfo,SubContents,Contents
+SET,0,BG,,,city
 SET,0,Member,,IDLE,오스카
 TALK,0,오스카,,IDLE,"..."
+SET,0,BG,,,forest
 TALK,0,오스카,,IDLE,"......"
 SYSTEM,0,,,,이 곳이 어딘지 아나요?
 SYSTEM,0,,,,어디까지 기억이 나나요?

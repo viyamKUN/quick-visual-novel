@@ -19,6 +19,8 @@ namespace QVN.Story
         [SerializeField]
         private StandingSetter _standingSetter;
         [SerializeField]
+        private BackgroundSetter _backgroundSetter;
+        [SerializeField]
         private SelectionSetter _selectionSetter;
         [SerializeField]
         private Image _fade;
@@ -34,7 +36,7 @@ namespace QVN.Story
             _systemDialogSetter.Init();
             int targetScenario = Data.StoryBookmark.GetScenarioID();
             Data.StoryStaticData.ReadData();
-            Data.CharacterStaticData.ReadData();
+            Data.NameStaticData.ReadData();
             ShowScenario(targetScenario);
         }
 
@@ -60,23 +62,32 @@ namespace QVN.Story
                         case "Member":
                             _standingSetter.SetStandings(line.Contents);
                             break;
+
+                        case "BG":
+                            _backgroundSetter.UpdateImage(line.Contents);
+                            break;
+
                         case "Name":
                             // TODO: 사용자 이름 입력받기
                             break;
                     }
                     Next();
                     break;
+
                 case "TALK":
                     _dialogSetter.SetDialog(line.GetName(), line.Contents);
                     _standingSetter.SetTalker(line.Info, line.GetFeeling());
                     break;
+
                 case "RADIO":
                     _dialogSetter.SetRadioDialog(line.GetName(), line.Contents);
                     _standingSetter.SetTalker(line.Info, line.GetFeeling());
                     break;
+
                 case "SYSTEM":
                     _systemDialogSetter.SetDialog(string.Empty, line.Contents);
                     break;
+
                 case "SELECT":
                     var nextLine = _scenarioList[_pin + 1];
                     if (!nextLine.Code.Equals("SELECT"))
